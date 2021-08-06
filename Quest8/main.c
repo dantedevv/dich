@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void rev_array(int array[],int n);
+void shift_array(int array[],int n);
 void print_array(int array[], int n);
 
 int main(void)
@@ -12,10 +13,19 @@ int main(void)
     
     for (ctr = 0; ctr < 5; ctr++) scanf("%d", &array[ctr]);  
     
-    rev_array(array,5);
+    //rev_array(array,5);
+    //shift_array(array,5);
+    //print_array (array,5);
     printf("\n");
 
     return 0;
+}
+
+void print_array(int array[], int n)
+{
+    for (int ctr = 0; ctr < n; ctr++) {
+        printf("%d ", array[ctr]);
+    }
 }
 
 void rev_array(int array[],int n)
@@ -26,13 +36,14 @@ void rev_array(int array[],int n)
     array[ctr] = array[n-ctr-1]; 
     array[n-ctr-1] = tmp;
     }
-
-    print_array(array, 5);
 }
 
-void print_array(int array[], int n)
+
+void shift_array(int array[],int n)
 {
-    for (int ctr = 0; ctr < n; ctr++) {
-        printf("%d ", array[ctr]);
-    }
+    int tmp = array [0];
+
+    for (int ctr = 0; ctr < n; ctr++)  array[ctr] = array[ctr+1];  
+
+    array[n-1] = tmp;
 }
