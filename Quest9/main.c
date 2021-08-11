@@ -23,11 +23,12 @@ int str_sum_digits(const char *cs)
     int n = strlen(cs);
     
     for (int i = 0; i < n; i++) {
-       if ((cs[i] >= '0') && (cs[i] <= '9')) 
-        num = cs[i];
-        summ += num - '0';
+       if ((cs[i] >= '0') && (cs[i] <= '9')) { 
+            num = cs[i];
+            summ += num - '0';
+        }
+        else num = 0;
     }
 
     return summ;
 }
-
