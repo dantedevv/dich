@@ -28,11 +28,11 @@ int main(int argc, char **argv)
 
     fclose(f1);
 
-    char BUFF [size1];
+    char BUFF[size1];
 
     load_from_file(&BUFF, fname1, size1);
     save_to_file(&BUFF, fname2,size1);
     
-    
+
     return 0;
 }
