@@ -15,9 +15,8 @@ int load_from_file(void *element, const char *fname, size_t size)
         printf("File does not exist. ERROR!\n");
         return -1;
     }
-
-    sz = fread(element, size, 1, f);
-
+    
+    fread(element, size, 1, f);
     fclose(f);
 
     return 0;
@@ -35,11 +34,10 @@ int save_to_file(const void *element, const char *fname, size_t size)
     }
 
     fwrite(element, size, 1, f);
-    
     fseek(f, 0, SEEK_END);
 
     sz = ftell(f);
-
+    
     fclose(f);
 
     printf("Copying is complete. Transfered %lu bytes\n", sz);
