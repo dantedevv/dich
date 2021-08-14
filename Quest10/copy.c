@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <stddef.h>
 
+
 int load_from_file(void *element, const char *fname, size_t size)
 {
     FILE *f;
@@ -29,12 +30,19 @@ int save_to_file(const void *element, const char *fname, size_t size)
 
     f = fopen(fname, "wb");
     if (f == NULL) {
+        printf("Copying FAILED!!!\n");
         return -1;
     }
 
-    sz = fwrite(element, size, 1, f);
+    fwrite(element, size, 1, f);
+    
+    fseek(f, 0, SEEK_END);
+
+    sz = ftell(f);
 
     fclose(f);
+
+    printf("Copying is complete. Transfered %lu bytes\n", sz);
 
     return 0;
 }
