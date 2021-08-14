@@ -10,6 +10,7 @@ int main(int argc, char **argv)
 {
    char fname1[100] = { 0 };
    char fname2[100] = { 0 };
+   int a;
    
    size_t size1, size2;
 
@@ -21,7 +22,7 @@ int main(int argc, char **argv)
 
    f1 = fopen(fname1, "rb");
     if (f1 == NULL) {
-        printf("ZALOOPA!\n");
+        printf("File does not exist. ERROR!\n");
         return -1;
     }
 
@@ -30,12 +31,13 @@ int main(int argc, char **argv)
 
     fclose(f1);
 
-   load_from_file(f1, fname1, size1);
-   save_to_file(f1, fname2,size1);
+   a = load_from_file(f1, fname1, size1);
+   a = save_to_file(f1, fname2,size1);
+   
 
    f2 = fopen(fname2, "rb");
     if (f2 == NULL) {
-        printf("ZALOOPA!\n");
+        printf("Copying FAILED!!!\n");
         return -1;
     }
 

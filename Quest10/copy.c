@@ -11,7 +11,7 @@ int load_from_file(void *element, const char *fname, size_t size)
      
     f = fopen(fname, "rb");
     if (f == NULL) {
-        printf("ZALOOPA!\n");
+        printf("File does not exist. ERROR!\n");
         return -1;
     }
 
