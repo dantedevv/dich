@@ -37,6 +37,10 @@ Use -m[1-12] to see information about certain month.\n");
             case 'm' : {
                 m = atoi(optarg);
                 all = false;
+                if ((m < 1) || (m > 12)){
+                    printf ("Invalid argument of month\n");
+                    return 0;
+                } 
                 break;
             }
         }

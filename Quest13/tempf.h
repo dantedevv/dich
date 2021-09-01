@@ -14,4 +14,4 @@ typedef struct meas {
   } meas;
 
 int meas_scan(const char *file,const int month, bool all);
-void temp_stat(meas *m, const int crtmonth);
+void temp_stat(meas *m, const int crtmonth, int Nelements);
