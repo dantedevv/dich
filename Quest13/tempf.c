@@ -35,18 +35,19 @@ int meas_scan(const char *file, const int month, bool all)
   printf("Scanned lines %d All %s\n", i, all ? "TRUE" : "FALSE");
 
   int Nelements = i;
-  
+
   yearmax = yearmin = m[0].temp;
 
-  for (int i = 0; i <= Nelements; i++){
-    if (m[i].temp > yearmax) yearmax = m[i].temp;
-    if (m[i].temp < yearmin) yearmin = m[i].temp;
-    yearsum += m[i].temp;
-  }
-  averyear = yearsum / Nelements;
-
   if (all){
+      for (int i = 0; i <= Nelements; i++){
+        if (m[i].temp > yearmax) yearmax = m[i].temp;
+        if (m[i].temp < yearmin) yearmin = m[i].temp;
+        yearsum += m[i].temp;
+    }
+    averyear = yearsum / Nelements;
+
     printf("Information of %d year:\nMax temp = %d\nMin temp = %d\nAverage temp = %d\n", m[0].year, yearmax, yearmin, averyear); 
+    
     for (int i = 1; i <= 12; i++) temp_stat(m, i, Nelements);
   }
   else temp_stat(m, month, Nelements);
